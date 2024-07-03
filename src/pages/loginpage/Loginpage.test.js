@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { loginUserApi } from "../../apis/Api";
 
 
-//mock the Api.js files
+//mock the Api.js files , not sending to real backend
 jest.mock('../../apis/Api'); 
 
 
@@ -50,12 +50,12 @@ describe('LoginPage Component',()=>{
         //Simulating ,filling input logically
         fireEvent.change(email,{
             target:{
-                value:'test@gmail.com'
+                value:'bhu@gmail.com'
             }
         })
         fireEvent.change(password,{
             target:{
-                value:'test123'
+                value:'12345'
             }
         })
         fireEvent.click(LoginBtn)
@@ -67,11 +67,11 @@ describe('LoginPage Component',()=>{
         await waitFor(() => {
              
             //Expect api call with data,we entered /chnage 
-            expect(loginUserApi).toHaveBeenCalledWith({email:"test@gmail.com",password:"test123"})
+            expect(loginUserApi).toHaveBeenCalledWith({email:"bhu@gmail.com",password:"12345"})
 
 
             //check error .toast is called or npt 
-            expect(toast.error).toHaveBeenCalledWith('Incorrect Password!')
+            expect(toast.error).toHaveBeenLastCalledWith('Incorrect Password!')
 
         })
 

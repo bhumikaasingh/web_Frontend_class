@@ -154,7 +154,7 @@ const Registerpage = () => {
                         confirmPasswordError && <p className="text-danger">{confirmPasswordError}</p>
                     }
 
-                    <button onClick={handleSubmit} className='btn btn-dark mt-2 w-100' >Create Account</button>
+                    <button onClick={handleSubmit} className='btn btn-danger mt-2 w-100' >Register</button>
                 </form>
             </div>
         </>
